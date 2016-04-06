@@ -19,10 +19,11 @@
             <li><a href= "http://www..../contact"> Contact </a></li>
          </ul>
 
-
-         <div id="cart">
+         <% if @cart %>
+         <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
             <%= render @cart %>
-         </div>
+         <% end %>
+         <% end %>
       </div>
       <div id="main">
          <%= yield %>
